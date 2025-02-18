@@ -291,10 +291,10 @@ const CandleStick: React.FC = () => {
           return w.globals.series[seriesIndex][dataPointIndex];
         },
         function ({ seriesIndex, dataPointIndex, w }) {
-          var o = w.globals.seriesCandleO[seriesIndex][dataPointIndex];
-          var h = w.globals.seriesCandleH[seriesIndex][dataPointIndex];
-          var l = w.globals.seriesCandleL[seriesIndex][dataPointIndex];
-          var c = w.globals.seriesCandleC[seriesIndex][dataPointIndex];
+          const o = w.globals.seriesCandleO[seriesIndex][dataPointIndex];
+          const h = w.globals.seriesCandleH[seriesIndex][dataPointIndex];
+          const l = w.globals.seriesCandleL[seriesIndex][dataPointIndex];
+          const c = w.globals.seriesCandleC[seriesIndex][dataPointIndex];
           return (
             '<div class="apexcharts-tooltip-candlestick">' +
             '<div>Open: <span class="value">' +

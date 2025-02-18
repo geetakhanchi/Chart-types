@@ -23,7 +23,6 @@ import {
   MenuItem,
   TextField,
   InputAdornment,
-  Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import CandlestickChartIcon from "@mui/icons-material/CandlestickChart";
