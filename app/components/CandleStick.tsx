@@ -1,8 +1,9 @@
 import React from "react";
 import ApexCharts from "react-apexcharts";
+import { ApexOptions } from "apexcharts";
 
 const CandleStick: React.FC = () => {
-  const options = {
+  const options: ApexOptions = {
     series: [
       {
         name: "line",
