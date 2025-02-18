@@ -12,6 +12,8 @@ import {
   TimeScale,
 } from "chart.js";
 import { Bar, Line } from "react-chartjs-2";
+import { ChartData } from "chart.js";
+import { Chart } from "react-chartjs-2";
 
 // component import
 import CandleStick from "./CandleStick";
@@ -29,6 +31,7 @@ import CandlestickChartIcon from "@mui/icons-material/CandlestickChart";
 import InfoIcon from "@mui/icons-material/Info";
 import ArticleIcon from "@mui/icons-material/Article";
 import EditIcon from "@mui/icons-material/Edit";
+import { SelectChangeEvent } from "@mui/material";
 
 ChartJS.register(
   CategoryScale,
@@ -57,7 +60,7 @@ const chartData = {
 };
 
 // Mixed Chart Data
-const mixedChartData = {
+const mixedChartData: ChartData<"bar" | "line", number[], string> = {
   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
   datasets: [
     {
@@ -109,9 +112,10 @@ export default function ChartComponent() {
     { value: "candlestick", label: "Candlestick Chart" },
   ];
 
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setChartType(event.target.value as string);
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    setChartType(event.target.value);
   };
+
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const search = event.target.value;
     setSearchTerm(search);
@@ -212,7 +216,11 @@ export default function ChartComponent() {
         <Bar data={chartData} options={{ responsive: true }} />
       )}
       {chartType === "mixed" && (
-        <Bar data={mixedChartData} options={{ responsive: true }} />
+        <Chart
+          type="bar"
+          data={mixedChartData}
+          options={{ responsive: true }}
+        />
       )}
       {chartType === "dualAxis" && (
         <Line
