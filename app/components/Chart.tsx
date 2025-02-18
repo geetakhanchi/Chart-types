@@ -32,6 +32,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import ArticleIcon from "@mui/icons-material/Article";
 import EditIcon from "@mui/icons-material/Edit";
 import { SelectChangeEvent } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 ChartJS.register(
   CategoryScale,
@@ -103,6 +104,7 @@ const dualAxisChartData = {
 export default function ChartComponent() {
   const [chartType, setChartType] = useState<string>("line");
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const matches = useMediaQuery("(min-width:600px)");
 
   const chartTypes = [
     { value: "line", label: "Line Chart" },
@@ -130,7 +132,12 @@ export default function ChartComponent() {
 
   return (
     <Box p={4}>
-      <Box display="flex" gap={10} mb={4}>
+      <Box
+        display="flex"
+        gap={!matches ? 2 : 10}
+        mb={4}
+        flexDirection={!matches ? "column" : "row"}
+      >
         <TextField
           placeholder="Search Chart Type"
           variant="outlined"
