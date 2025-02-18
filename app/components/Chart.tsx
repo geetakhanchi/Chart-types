@@ -93,7 +93,7 @@ const dualAxisChartData = {
     },
     {
       label: "Profit",
-      data: [10, 30, 20, 40, 50, 30, 60],
+      data: [15, 35, 25, 45, 55, 30, 60],
       borderColor: "green",
       backgroundColor: "rgba(0, 255, 0, 0.5)",
       yAxisID: "y1",
